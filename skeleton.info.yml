@@ -1,0 +1,5 @@
+name: Skeleton
+core: 8.x
+description: Sample codes for start drupal 8 module devolopment.
+package: Custom
+type: module

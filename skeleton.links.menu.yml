@@ -1,0 +1,11 @@
+skeleton.menu_example:
+  title: Menu Example
+  description: 'Simplest possible menu type, and the parent menu entry for others'
+  expanded: 1
+  route_name: skeleton.content
+
+skeleton.menu_example.sub_content:
+  title: Sub Menu Example
+  description: 'Find and manage content.'
+  route_name: skeleton.content
+  parent: skeleton.menu_example

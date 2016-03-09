@@ -1,0 +1,15 @@
+skeleton.content:
+  path: '/skeleton-menu'
+  defaults:
+    _controller: '\Drupal\skeleton\Controller\SkeletonController::default_contents'
+    _title: 'Hello World'
+  requirements:
+    _permission: 'access content'
+
+skeleton.content.tab2:
+  path: '/skeleton-tab'
+  defaults:
+    _controller: '\Drupal\skeleton\Controller\SkeletonController::tab2_contents'
+    _title: 'Hello Worlds'
+  requirements:
+    _permission: 'access content'
