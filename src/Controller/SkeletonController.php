@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\example\Controller\SkeletonController.
+ * Contains \Drupal\skeleton\Controller\SkeletonController.
  */
 
 namespace Drupal\skeleton\Controller;
@@ -17,6 +17,14 @@ class SkeletonController extends ControllerBase {
         $build = array(
             '#type' => 'markup',
             '#markup' => t('Hello World!'),
+        );
+        return $build;
+    }
+
+    public function sub_menu_contents() {
+        $build = array(
+            '#type' => 'markup',
+            '#markup' => t('Sub menu contents here...'),
         );
         return $build;
     }

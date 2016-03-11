@@ -6,6 +6,14 @@ skeleton.content:
   requirements:
     _permission: 'access content'
 
+skeleton.content.sub:
+  path: '/skeleton-sub'
+  defaults:
+    _controller: '\Drupal\skeleton\Controller\SkeletonController::sub_menu_contents'
+    _title: 'Hello Worlds'
+  requirements:
+    _permission: 'access content'
+
 skeleton.content.tab2:
   path: '/skeleton-tab'
   defaults:

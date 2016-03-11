@@ -7,5 +7,5 @@ skeleton.menu_example:
 skeleton.menu_example.sub_content:
   title: Sub Menu Example
   description: 'Find and manage content.'
-  route_name: skeleton.content
+  route_name: skeleton.content.sub
   parent: skeleton.menu_example

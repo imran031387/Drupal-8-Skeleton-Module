@@ -1,11 +1,17 @@
 # Default tab's route name should same as the base route.
 # here we need the local task under /skeleton-menu link so we put the skeleton.content as the base_route
-skeleton.menu_example.tab_1:
+skeleton.menu_example.local_tasks.tab_1:
   route_name : skeleton.content
   title: Tab 1
   base_route: skeleton.content
 
-skeleton.menu_example.tab_2:
+skeleton.menu_example.local_tasks.tab_2:
   route_name : skeleton.content.tab2
   title: Tab 2
   base_route: skeleton.content
+
+#skeleton.menu_example.dyn_local_tasks:
+#  deriver: 'Drupal\skeleton\Plugin\Derivative\DynamicLocalTasks'
+#  weight: 100
+#  base_route: skeleton.content
+
