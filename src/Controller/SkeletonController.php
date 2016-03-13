@@ -60,8 +60,11 @@ class SkeletonController extends ControllerBase {
 
         // Drupal 8 services way to obtain objects.
         $stringGenarator = $this->stringgenerator->page_arguments();
-
-        return new response($stringGenarator);
+        return array(
+            '#markup' => $stringGenarator,
+        );
+        // we can use responce as well
+        //return new response($stringGenarator);
 
     }
 
