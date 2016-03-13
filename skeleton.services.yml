@@ -1,5 +1,5 @@
 services:
   skeleton.stringgenerator:
     class: Drupal\skeleton\Services\CustomBuildServices
-
+    arguments: ['@logger.factory']
 
