@@ -10,8 +10,7 @@ skeleton.menu_example.local_tasks.tab_2:
   title: Tab 2
   base_route: skeleton.content
 
-#skeleton.menu_example.dyn_local_tasks:
-#  deriver: 'Drupal\skeleton\Plugin\Derivative\DynamicLocalTasks'
-#  weight: 100
-#  base_route: skeleton.content
+skeleton.menu_example.dyn_local_tasks:
+  deriver: 'Drupal\skeleton\Plugin\Derivative\DynamicLocalTasks'
+  weight: 100
 

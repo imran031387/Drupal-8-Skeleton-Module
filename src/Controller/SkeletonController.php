@@ -7,8 +7,24 @@
 namespace Drupal\skeleton\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\skeleton\Services\CustomBuildServices;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class SkeletonController extends ControllerBase {
+
+    /**
+     * @var CustomBuildServices
+     */
+    private $serviceString;
+
+    /**
+     * @param CustomBuildServices $serviceString
+     */
+    public function __construct(CustomBuildServices $serviceString){
+
+        $this->stringgenerator = $serviceString;
+    }
 
     /**
      * {@inheritdoc}
@@ -36,6 +52,30 @@ class SkeletonController extends ControllerBase {
         );
         return $build;
     }
+
+    public function service_contents(){
+        // This is the typical OOP code for create objects out of class.
+        //$customBuildServices = new CustomBuildServices();
+        //$stringGenarator = $customBuildServices->page_arguments();
+
+        // Drupal 8 services way to obtain objects.
+        $stringGenarator = $this->stringgenerator->page_arguments();
+
+        return new response($stringGenarator);
+
+    }
+
+    /**
+     * @param ContainerInterface $container
+     * @return static
+     */
+    public static function create(ContainerInterface $container)
+    {
+        // Getting service out of the container.
+        $serviceString = $container->get('skeleton.stringgenerator');
+        return new static($serviceString);
+    }
+
 
 }
 ?>
