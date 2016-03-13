@@ -16,7 +16,7 @@ class CustomBuildServices {
         $this->loggerFactory = $loggerFactory;
     }
 
-    public function page_arguments(){
+    public function service_example(){
         $serviceMessage = 'This message is from custom service';
         $this->loggerFactory->get('default')->debug($serviceMessage);
         return $serviceMessage;
