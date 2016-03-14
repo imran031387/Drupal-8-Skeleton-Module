@@ -16,12 +16,16 @@ class CustomBuildEventListener implements EventSubscriberInterface
      */
     private $evenlistenerlogger;
 
+    /**
+     * @param LoggerChannelFactoryInterface $evenlistenerlogger
+     */
     public function __construct(LoggerChannelFactoryInterface $evenlistenerlogger){
-
-
         $this->evenlistenerlogger = $evenlistenerlogger;
     }
 
+    /**
+     * @param GetResponseEvent $event
+     */
     public function onKernelRequest(GetResponseEvent $event){
         $request = $event->getRequest();
         if($request->getRequestUri() == '/skeleton-event-subscriber'){
@@ -30,6 +34,9 @@ class CustomBuildEventListener implements EventSubscriberInterface
         }
     }
 
+    /**
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         return [
