@@ -1,5 +1,11 @@
+parameters:
+    skeleton.errorlogging: true
+
 services:
   skeleton.stringgenerator:
     class: Drupal\skeleton\Services\CustomBuildServices
-    arguments: ['@logger.factory']
+    arguments:
+        - '@logger.factory'
+        # %% is used to define a parameter which is defined in a service file.
+        - %skeleton.errorlogging%
 
