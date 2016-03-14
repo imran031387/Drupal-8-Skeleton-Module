@@ -63,7 +63,7 @@ class SkeletonController extends ControllerBase {
         return array(
             '#markup' => $stringGenarator,
         );
-        // we can use responce as well
+        // we can use response as well.
         //return new response($stringGenarator);
 
     }
@@ -77,6 +77,12 @@ class SkeletonController extends ControllerBase {
         // Getting service out of the container.
         $serviceString = $container->get('skeleton.stringgenerator');
         return new static($serviceString);
+    }
+
+    public function event_subscriber_contents(){
+        return array(
+            '#markup' => 'Event subscriber contents...',
+        );
     }
 
 

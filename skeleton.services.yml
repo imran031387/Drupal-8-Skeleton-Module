@@ -11,3 +11,10 @@ services:
         # %% is used to define a parameter which is defined in a service file.
         - %skeleton.errorlogging%
 
+  skeleton.eventsubscriber:
+     class: Drupal\skeleton\Services\CustomBuildEventListener
+     # using [] also you can define arrays in YAML.
+     arguments: ['@logger.factory']
+     tags:
+         - { name: event_subscriber }
+

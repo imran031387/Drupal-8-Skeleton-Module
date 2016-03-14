@@ -29,3 +29,11 @@ skeleton.content.service:
     _title: 'Service Example'
   requirements:
     _permission: 'access content'
+
+skeleton.content.event.subscriber:
+  path: '/skeleton-event-subscriber'
+  defaults:
+    _controller: '\Drupal\skeleton\Controller\SkeletonController::event_subscriber_contents'
+    _title: 'Event Subscriber Example'
+  requirements:
+    _permission: 'access content'

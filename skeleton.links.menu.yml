@@ -15,3 +15,9 @@ skeleton.menu_example.service_content:
   description: 'Find and manage content.'
   route_name: skeleton.content.service
   parent: skeleton.menu_example
+
+skeleton.menu_example.event_subscriber_content:
+  title: Event Subscriber Example
+  description: 'Event Subscriber content.'
+  route_name: skeleton.content.event.subscriber
+  parent: skeleton.menu_example
