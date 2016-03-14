@@ -1,3 +1,5 @@
+# if we stup parametres like this we can overite this according to the envirment
+# in eg:- devolopment.services.yml in settings.php
 parameters:
     skeleton.errorlogging: true
 
