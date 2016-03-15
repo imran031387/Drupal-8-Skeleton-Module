@@ -3,12 +3,18 @@
 /**
  * @file
  * Contains \Drupal\skeleton\Plugin\Block\CustomBlock.
+ * https://docs.acquia.com/articles/drupal-8-dependency-injection-and-plugins
+ * we need to implement ContainerFactoryPluginInterface interface for getting the services
+ * to CustomBlock class.
  */
 
 namespace Drupal\skeleton\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a 'CustomBlock' block.
@@ -18,8 +24,24 @@ use Drupal\Core\Form\FormStateInterface;
  *  admin_label = @Translation("Custom block"),
  * )
  */
-class CustomBlock extends BlockBase {
+class CustomBlock extends BlockBase implements ContainerFactoryPluginInterface{
+    /**
+     * @var array|AccountProxyInterface
+     */
+    private $serviceUser;
 
+
+    /**
+     * @param array $configuration
+     * @param string $plugin_id
+     * @param mixed $plugin_definition
+     * @param AccountProxyInterface $serviceUser
+     */
+    public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $serviceUser){
+        // Call parent construct method.
+        parent::__construct($configuration, $plugin_id, $plugin_definition);
+        $this->serviceUser = $serviceUser;
+    }
     /**
      * @param array $form
      * @param FormStateInterface $form_state
@@ -75,14 +97,24 @@ class CustomBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-      $config = $this->getConfiguration();
-      var_dump($config);
-    return array('#markup'=>'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry
-                             \'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                             to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                              remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
-                              Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
-    );
+      $data  = 'This data is retrived from a service </br>';
+      $data .= 'logged in user Name:'.$this->serviceUser->getAccountName().'</br>';
+      $data .= 'logged in user ID:'.$this->serviceUser->id();
+    return array('#markup'=>$data);
   }
+
+    /**
+     * @param ContainerInterface $container
+     * @param array $configuration
+     * @param string $plugin_id
+     * @param mixed $plugin_definition
+     * @return static
+     */
+    public static function create(ContainerInterface $container,array $configuration, $plugin_id, $plugin_definition){
+        // Getting service out of the container.
+        $serviceUser = $container->get('current_user');
+        return new static($configuration,$plugin_id,$plugin_definition,$serviceUser);
+
+    }
 
 }
