@@ -37,3 +37,11 @@ skeleton.content.event.subscriber:
     _title: 'Event Subscriber Example'
   requirements:
     _permission: 'access content'
+
+skeleton.content.custom.formbuilder:
+  path: '/skeleton-custom-form'
+  defaults:
+    _form: '\Drupal\skeleton\Form\CustomFormBuilder'
+    _title: 'Form Example'
+  requirements:
+    _permission: 'access content'
