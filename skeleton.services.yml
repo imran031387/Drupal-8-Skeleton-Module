@@ -18,3 +18,9 @@ services:
      tags:
          - { name: event_subscriber }
 
+  skeleton.subscriber:
+      class: Drupal\skeleton\Routing\DynamicRouteSubscriber
+      arguments: ['@entity.manager']
+      tags:
+       - { name: event_subscriber }
+

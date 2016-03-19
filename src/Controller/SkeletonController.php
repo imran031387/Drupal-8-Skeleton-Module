@@ -37,6 +37,14 @@ class SkeletonController extends ControllerBase {
         return $build;
     }
 
+    public function dynamic_route_contents() {
+        $build = array(
+            '#type' => 'markup',
+            '#markup' => t('Dynamic route contents here...'),
+        );
+        return $build;
+    }
+
     public function sub_menu_contents() {
         $build = array(
             '#type' => 'markup',
