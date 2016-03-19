@@ -12,6 +12,7 @@ services:
         - %skeleton.errorlogging%
 
   skeleton.eventsubscriber:
+     # when a specific uri hit it'll watchdog a message to drupal recent reports.
      class: Drupal\skeleton\Services\CustomBuildEventListener
      # using [] also you can define arrays in YAML.
      arguments: ['@logger.factory']
@@ -19,6 +20,7 @@ services:
          - { name: event_subscriber }
 
   skeleton.subscriber:
+      # class to create dynamic routes.
       class: Drupal\skeleton\Routing\DynamicRouteSubscriber
       arguments: ['@entity.manager']
       tags:
