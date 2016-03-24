@@ -33,3 +33,10 @@ skeleton.menu_example.custom_form:
   parent: skeleton.menu_example
   weight: 40
 
+skeleton.menu_example.breadcrumb:
+  title: Breadcrumb Example
+  description: 'Breadcrumb Example'
+  route_name: skeleton.content.breadcrumb
+  parent: skeleton.menu_example
+  weight: 50
+

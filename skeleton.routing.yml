@@ -45,3 +45,11 @@ skeleton.content.custom.formbuilder:
     _title: 'Form Example'
   requirements:
     _permission: 'access content'
+
+skeleton.content.breadcrumb:
+  path: '/custom-breadcrumb'
+  defaults:
+    _controller: '\Drupal\skeleton\Controller\SkeletonController::breadcrumb_contents'
+    _title: 'Breadcrumb Example'
+  requirements:
+    _permission: 'access content'

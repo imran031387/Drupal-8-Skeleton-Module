@@ -37,6 +37,9 @@ class SkeletonController extends ControllerBase {
         return $build;
     }
 
+    /**
+     * @return array
+     */
     public function dynamic_route_contents() {
         $build = array(
             '#type' => 'markup',
@@ -45,6 +48,9 @@ class SkeletonController extends ControllerBase {
         return $build;
     }
 
+    /**
+     * @return array
+     */
     public function sub_menu_contents() {
         $build = array(
             '#type' => 'markup',
@@ -53,6 +59,9 @@ class SkeletonController extends ControllerBase {
         return $build;
     }
 
+    /**
+     * @return array
+     */
     public function tab2_contents() {
         $build = array(
             '#type' => 'markup',
@@ -61,6 +70,9 @@ class SkeletonController extends ControllerBase {
         return $build;
     }
 
+    /**
+     * @return array
+     */
     public function service_contents(){
         // This is the typical OOP code for create objects out of class.
         //$customBuildServices = new CustomBuildServices();
@@ -77,6 +89,17 @@ class SkeletonController extends ControllerBase {
     }
 
     /**
+     * @return array
+     */
+    public function breadcrumb_contents() {
+        $build = array(
+            '#type' => 'markup',
+            '#markup' => t('Breadcrumb contents here...'),
+        );
+        return $build;
+    }
+
+    /**
      * @param ContainerInterface $container
      * @return static
      */
@@ -87,6 +110,9 @@ class SkeletonController extends ControllerBase {
         return new static($serviceString);
     }
 
+    /**
+     * @return array
+     */
     public function event_subscriber_contents(){
         return array(
             '#markup' => 'Event subscriber contents...',
