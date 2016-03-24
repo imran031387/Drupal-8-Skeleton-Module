@@ -21,7 +21,6 @@ class SkeletonBreadcrumbBuilder extends PathBasedBreadcrumbBuilder {
      */
     public function applies(RouteMatchInterface $route_match) {
         $parameters = explode('.', $route_match->getRouteName());
-        var_dump($parameters);
         if ($parameters[2] === 'breadcrumb') {
             return true;
         }
